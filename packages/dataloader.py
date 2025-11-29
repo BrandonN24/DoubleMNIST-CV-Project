@@ -21,7 +21,7 @@ def load_data(img_dir):
     data_transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=1),
         transforms.ToTensor(),
-        transforms.Normalize((0.5,),(0,5,))
+        transforms.Normalize((0.5,),(0.5,))
     ])
 
     # Using image folder to create datasets
