@@ -198,11 +198,8 @@ def main(FLAGS):
 
     test_loss, test_acc = test(model, device, criterion, test_DL)
 
-    # use the final test metric as the last data-point for validation.
-    val_loss_list.append(test_loss)
-    val_acc_list.append(test_acc)
-
-    print(f"Test accuracy: {test_acc}")
+    print(f"Test loss: {test_loss}")
+    print(f"Test accuracy: {test_acc}%")
 
     print_plots(train_loss_list, train_acc_list, val_loss_list, val_acc_list)
 
