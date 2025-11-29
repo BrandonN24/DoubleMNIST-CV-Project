@@ -8,12 +8,15 @@ def load_data(img_dir):
     test_dir = img_dir + "/test"
     val_dir = img_dir + "/val"
 
+    mean, std = 0.1307, 0.3081  # MNIST defaults
+
+
     train_transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=1),
         transforms.RandomRotation(degrees=15),                                                  # small rotations
         transforms.RandomAffine(degrees=0, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=10),   # random shifts
         transforms.ToTensor(),                                                                  # convert to tensor
-        transforms.Normalize((0.5,), (0.5,)),                                                   # normalize
+        transforms.Normalize((mean,), (std,)),                                                   # normalize
         transforms.RandomApply([transforms.RandomErasing(p=0.5, scale=(0.02, 0.1))], p=0.5)     # erase patches
     ])
 
@@ -21,7 +24,7 @@ def load_data(img_dir):
     data_transform = transforms.Compose([
         transforms.Grayscale(num_output_channels=1),
         transforms.ToTensor(),
-        transforms.Normalize((0.5,),(0.5,))
+        transforms.Normalize((mean,), (std,))
     ])
 
     # Using image folder to create datasets
