@@ -9,14 +9,12 @@ def load_data(img_dir):
     val_dir = img_dir + "/val"
 
     train_transform = transforms.Compose([
-    transforms.Grayscale(num_output_channels=1),
-    transforms.RandomRotation(degrees=15),                     # small rotations
-    transforms.RandomAffine(degrees=0, translate=(0.1, 0.1),   # random shifts
-                   scale=(0.9, 1.1), shear=10),
-    transforms.RandomApply([transforms.GaussianBlur(kernel_size=3)], p=0.3),  # occasional blur
-    transforms.RandomApply([transforms.RandomErasing(p=0.5, scale=(0.02, 0.1))], p=0.5), # erase patches
-    transforms.ToTensor(),
-    transforms.Normalize((0.5,), (0.5,))                       # normalize grayscale
+        transforms.Grayscale(num_output_channels=1),
+        transforms.RandomRotation(degrees=15),                                                  # small rotations
+        transforms.RandomAffine(degrees=0, translate=(0.1, 0.1), scale=(0.9, 1.1), shear=10),   # random shifts
+        transforms.ToTensor(),                                                                  # convert to tensor
+        transforms.Normalize((0.5,), (0.5,)),                                                   # normalize
+        transforms.RandomApply([transforms.RandomErasing(p=0.5, scale=(0.02, 0.1))], p=0.5)     # erase patches
     ])
 
     # using 64 x 64 images already, so just convert to tensor
