@@ -16,7 +16,7 @@ def print_plots(train_loss, train_acc, test_loss, test_acc):
     ax1.plot(line, test_loss,c='red')
     ax1.set_xlabel('Epochs')
     ax1.set_ylabel('Loss')
-    ax1.set_ylim(-0.25, 2.5)
+    ax1.axis('tight')
     ax1.grid()
     fig1.savefig('loss.png')
 
@@ -29,7 +29,7 @@ def print_plots(train_loss, train_acc, test_loss, test_acc):
     ax2.plot(line, test_acc, c='red')
     ax2.set_xlabel('Epochs')
     ax2.set_ylabel('Accuracy')
-    ax2.set_ylim(0, 101)
+    ax2.axis('tight')
     ax2.grid()
     fig2.savefig('acc.png')
     plt.show()

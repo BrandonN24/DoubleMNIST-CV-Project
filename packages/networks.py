@@ -62,14 +62,13 @@ class Network(nn.Module):
 
         # Fully Convolutional Layers - will reuse AlexNet Layers for Convolutional
         self.fcn_layer = nn.Sequential(
-            nn.Conv2d(256, 512, kernel_size=3, stride=1),
+            nn.Conv2d(512, 512, kernel_size=3, stride=1),
             nn.ReLU(inplace=True)
         ) # dim: 3 -> 1
 
         # Two fully convolutional output heads for classification.
         self.fcn_output1 = nn.Conv2d(512, 10, kernel_size=1)
         self.fcn_output2 = nn.Conv2d(512, 10, kernel_size=1)
-
 
         # two output heads - used for all architectures
         self.fc_digit1 = nn.Linear(512, 10)
@@ -127,13 +126,13 @@ class Network(nn.Module):
         out = self.relu(out)
 
         # residual block layers
-        out = self.layer1(out)
-        out = self.layer2(out)
-        out = self.layer3(out)
-        out = self.layer4(out)
+        out = self.res_layer1(out)
+        out = self.res_layer2(out)
+        out = self.res_layer3(out)
+        out = self.res_layer4(out)
 
         # perform average pooling and flatten the tensor
-        out = self.avgpool(out)
+        out = self.res_avgpool(out)
         out = out.view(out.size(0), -1)
 
         # classifier head - make two digit predictions

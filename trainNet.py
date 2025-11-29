@@ -70,10 +70,8 @@ def train(model, device, train_loader, optimizer, criterion, epoch, batch_size):
         # Count correct predictions overall
         # sum the instances where our prediction matches the target
         for pred1, pred2, target1, target2 in zip(digit1_pred, digit2_pred, digit1, digit2):
-            if pred1 == target1:
-                correct += 0.5
-            if pred2 == target2:
-                correct += 0.5
+            if pred1 == target1 and pred2 == target2:
+                correct += 1
 
     train_loss = float(np.mean(losses))
     train_acc = 100. * correct / ((batch_idx+1) * batch_size)
@@ -131,10 +129,8 @@ def test(model, device, criterion, test_loader):
             # Count correct predictions overall
             # sum the instances where our prediction matches the target
             for pred1, pred2, target1, target2 in zip(digit1_pred, digit2_pred, digit1, digit2):
-                if pred1 == target1:
-                    correct += 0.5
-                if pred2 == target2:
-                    correct += 0.5
+                if pred1 == target1 and pred2 == target2:
+                    correct += 1
             
     test_loss = float(np.mean(losses))
     test_acc = 100. * correct / len(test_loader.dataset)
@@ -158,7 +154,7 @@ def main(FLAGS):
     model = Network(FLAGS.mode).to(device)
 
     # Define a loss function
-    # Using Binary Cross Entropy
+    # Using Cross Entropy
     criterion = nn.CrossEntropyLoss()
 
     # Define an optimizer function
@@ -203,7 +199,7 @@ def main(FLAGS):
 
     print_plots(train_loss_list, train_acc_list, val_loss_list, val_acc_list)
 
-    print("Best recorded validation accuracy is {:2.2f}".format(best_accuracy))
+    print("Best recorded validation accuracy is {:2.2f}%".format(best_accuracy))
     
     print("Training and evaluation finished.")
 
