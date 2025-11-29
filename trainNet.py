@@ -152,7 +152,7 @@ def main(FLAGS):
     print("Using device:", device)
 
     # Call function to get dataloaders.
-    train_DL, val_DL, test_DL= dataloader.get_double_MNIST("dataset\double_mnist", FLAGS)
+    train_DL, val_DL, test_DL= dataloader.get_double_MNIST("dataset/double_mnist", FLAGS)
 
     # Intialize Model
     model = Network(FLAGS.mode).to(device)

@@ -4,9 +4,9 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
 def load_data(img_dir):
-    train_dir = img_dir + "\\train"
-    test_dir = img_dir + "\\test"
-    val_dir = img_dir + "\\val"
+    train_dir = img_dir + "/train"
+    test_dir = img_dir + "/test"
+    val_dir = img_dir + "/val"
 
     # using 64 x 64 images already, so just convert to tensor
     data_transform = transforms.Compose([
