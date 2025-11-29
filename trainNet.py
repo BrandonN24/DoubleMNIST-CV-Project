@@ -161,6 +161,10 @@ def main(FLAGS):
     # Using Adam optimizer
     optimizer = optim.Adam(model.parameters(), lr=FLAGS.learning_rate)
 
+    # learning rate scheduler
+    # decrease the learning rate by a factor of 1/10 every 5 epochs
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
+
     # Intialize a best accuracy var
     best_accuracy = 0.0
 
@@ -179,6 +183,9 @@ def main(FLAGS):
                                       optimizer, criterion, epoch,
                                       FLAGS.batch_size)
         val_loss, val_acc = test(model, device, criterion, val_DL)
+
+        # step the learning rate scheduler after each epoch
+        scheduler.step()
 
         train_loss_list.append(train_loss)
         train_acc_list.append(train_acc)
