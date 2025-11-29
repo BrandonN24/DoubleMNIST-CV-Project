@@ -158,6 +158,10 @@ class Network(nn.Module):
         out1 = self.fcn_output1(out)
         out2 = self.fcn_output2(out)
 
+        # flatten to [batch, 10]
+        out1 = out1.view(out1.size(0), -1)
+        out2 = out2.view(out2.size(0), -1)
+
         return out1, out2
 
 # Class provided by Geek for Geeks
