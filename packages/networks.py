@@ -62,7 +62,7 @@ class Network(nn.Module):
 
         # Fully Convolutional Layers - will reuse AlexNet Layers for Convolutional
         self.fcn_layer = nn.Sequential(
-            nn.Conv2d(512, 512, kernel_size=3, stride=1),
+            nn.Conv2d(256, 512, kernel_size=3, stride=1),
             nn.ReLU(inplace=True)
         ) # dim: 3 -> 1
 
