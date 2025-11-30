@@ -60,9 +60,53 @@ class Network(nn.Module):
 
         self.res_avgpool = nn.AdaptiveAvgPool2d((1,1))
 
-        # Fully Convolutional Layers - will reuse AlexNet Layers for Convolutional
+        # Fully Convolutional Layers
+        self.custom_conv1 = nn.Sequential(
+            nn.Conv2d(1, 32, kernel_size=5, stride=1),
+            nn.BatchNorm2d(32),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2)
+        ) # dim: 64 -> 60 -> 30
+
+        self.custom_conv2 = nn.Sequential(
+            nn.Conv2d(32, 64, kernel_size=5, stride=1),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2)
+        ) # dim: 30 -> 26 -> 13
+
+        self.custom_conv3 = nn.Sequential(
+            nn.Conv2d(64, 128, kernel_size=3, stride=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(inplace=True)
+        ) # dim: 13 -> 11
+
+        self.custom_conv4 = nn.Sequential(
+            nn.Conv2d(128, 128, kernel_size=3, stride=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(inplace=True)
+        ) # dim: 11 -> 9
+
+        self.custom_conv5 = nn.Sequential(
+            nn.Conv2d(128, 256, kernel_size=3, stride=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2)
+        ) # dim: 9 -> 7 -> 3
+
+        self.alex_fcs = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(3*3*256, 1024),
+            nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
+            nn.Linear(1024, 512),
+            nn.ReLU(inplace=True),
+            nn.Dropout(0.5)
+        )
+        
         self.fcn_layer = nn.Sequential(
             nn.Conv2d(256, 512, kernel_size=3, stride=1),
+            nn.BatchNorm2d(512),
             nn.ReLU(inplace=True)
         ) # dim: 3 -> 1
 
@@ -145,11 +189,11 @@ class Network(nn.Module):
     def model_3(self, X):
 
         # perform convolution layers - reusing AlexNet architecture
-        out = self.alex_conv1(X)
-        out = self.alex_conv2(out)
-        out = self.alex_conv3(out)
-        out = self.alex_conv4(out)
-        out = self.alex_conv5(out)
+        out = self.custom_conv1(X)
+        out = self.custom_conv2(out)
+        out = self.custom_conv3(out)
+        out = self.custom_conv4(out)
+        out = self.custom_conv5(out)
 
         # instead of using fully connected layers, we use fully convolutional layers here
         out = self.fcn_layer(out)
@@ -158,7 +202,7 @@ class Network(nn.Module):
         out1 = self.fcn_output1(out)
         out2 = self.fcn_output2(out)
 
-        # flatten to [batch, 10]
+        # flatten to [batch, 10] for loss function to process
         out1 = out1.view(out1.size(0), -1)
         out2 = out2.view(out2.size(0), -1)
 
