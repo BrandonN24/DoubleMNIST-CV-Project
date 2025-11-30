@@ -1,0 +1,129 @@
+/content# python trainNet.py --mode=3 --learning_rate=0.001
+Using device: cuda
+Epoch 1:
+Train set: Average loss: 1.3184, Accuracy: 40899/64000 (63.90%)                               
+Test set: Average loss: 1.0834, Accuracy: 10981/16000 (68.63%)                                
+
+Epoch 2:
+Train set: Average loss: 0.4225, Accuracy: 55728/64000 (87.08%)                               
+Test set: Average loss: 1.3167, Accuracy: 10199/16000 (63.74%)                                
+
+Epoch 3:
+Train set: Average loss: 0.3329, Accuracy: 57402/64000 (89.69%)                               
+Test set: Average loss: 1.1687, Accuracy: 10850/16000 (67.81%)                                
+
+Epoch 4:
+Train set: Average loss: 0.2098, Accuracy: 59770/64000 (93.39%)                               
+Test set: Average loss: 0.9184, Accuracy: 11737/16000 (73.36%)                                
+
+Epoch 5:
+Train set: Average loss: 0.1853, Accuracy: 60248/64000 (94.14%)                               
+Test set: Average loss: 0.9194, Accuracy: 11789/16000 (73.68%)                                
+
+Epoch 6:
+Train set: Average loss: 0.1799, Accuracy: 60283/64000 (94.19%)                               
+Test set: Average loss: 0.9230, Accuracy: 11739/16000 (73.37%)                                
+
+Epoch 7:
+Train set: Average loss: 0.1675, Accuracy: 60508/64000 (94.54%)                               
+Test set: Average loss: 0.8934, Accuracy: 11861/16000 (74.13%)                                
+
+Epoch 8:
+Train set: Average loss: 0.1638, Accuracy: 60549/64000 (94.61%)                               
+Test set: Average loss: 0.8786, Accuracy: 11930/16000 (74.56%)                                
+
+Epoch 9:
+Train set: Average loss: 0.1588, Accuracy: 60624/64000 (94.72%)                               
+Test set: Average loss: 0.8899, Accuracy: 11925/16000 (74.53%)                                
+
+Epoch 10:
+Train set: Average loss: 0.1584, Accuracy: 60662/64000 (94.78%)                               
+Test set: Average loss: 0.8768, Accuracy: 11989/16000 (74.93%)                                
+
+Epoch 11:
+Train set: Average loss: 0.1586, Accuracy: 60649/64000 (94.76%)                               
+Test set: Average loss: 0.8810, Accuracy: 11974/16000 (74.84%)                                
+
+Epoch 12:
+Train set: Average loss: 0.1556, Accuracy: 60657/64000 (94.78%)                               
+Test set: Average loss: 0.8771, Accuracy: 12032/16000 (75.20%)                                
+
+Epoch 13:
+Train set: Average loss: 0.1540, Accuracy: 60760/64000 (94.94%)                               
+Test set: Average loss: 0.8747, Accuracy: 12025/16000 (75.16%)                                
+
+Epoch 14:
+Train set: Average loss: 0.1542, Accuracy: 60791/64000 (94.99%)                               
+Test set: Average loss: 0.8768, Accuracy: 12001/16000 (75.01%)                                
+
+Epoch 15:
+Train set: Average loss: 0.1549, Accuracy: 60784/64000 (94.97%)                               
+Test set: Average loss: 0.8744, Accuracy: 12019/16000 (75.12%)                                
+
+Epoch 16:
+Train set: Average loss: 0.1566, Accuracy: 60741/64000 (94.91%)                               
+Test set: Average loss: 0.8740, Accuracy: 12020/16000 (75.12%)                                
+
+Epoch 17:
+Train set: Average loss: 0.1512, Accuracy: 60820/64000 (95.03%)                               
+Test set: Average loss: 0.8747, Accuracy: 12014/16000 (75.09%)                                
+
+Epoch 18:
+Train set: Average loss: 0.1556, Accuracy: 60749/64000 (94.92%)                               
+Test set: Average loss: 0.8747, Accuracy: 12015/16000 (75.09%)                                
+
+Epoch 19:
+Train set: Average loss: 0.1563, Accuracy: 60735/64000 (94.90%)                               
+Test set: Average loss: 0.8749, Accuracy: 12014/16000 (75.09%)                                
+
+Epoch 20:
+Train set: Average loss: 0.1535, Accuracy: 60782/64000 (94.97%)                               
+Test set: Average loss: 0.8747, Accuracy: 12018/16000 (75.11%)                                
+
+Epoch 21:
+Train set: Average loss: 0.1567, Accuracy: 60710/64000 (94.86%)                               
+Test set: Average loss: 0.8747, Accuracy: 12019/16000 (75.12%)                                
+
+Epoch 22:
+Train set: Average loss: 0.1564, Accuracy: 60731/64000 (94.89%)                               
+Test set: Average loss: 0.8747, Accuracy: 12019/16000 (75.12%)                                
+
+Epoch 23:
+Train set: Average loss: 0.1545, Accuracy: 60734/64000 (94.90%)                               
+Test set: Average loss: 0.8747, Accuracy: 12018/16000 (75.11%)                                
+
+Epoch 24:
+Train set: Average loss: 0.1536, Accuracy: 60784/64000 (94.97%)                               
+Test set: Average loss: 0.8747, Accuracy: 12019/16000 (75.12%)                                
+
+Epoch 25:
+Train set: Average loss: 0.1523, Accuracy: 60800/64000 (95.00%)                               
+Test set: Average loss: 0.8747, Accuracy: 12018/16000 (75.11%)                                
+
+Epoch 26:
+Train set: Average loss: 0.1544, Accuracy: 60777/64000 (94.96%)                               
+Test set: Average loss: 0.8747, Accuracy: 12020/16000 (75.12%)                                
+
+Epoch 27:
+Train set: Average loss: 0.1540, Accuracy: 60784/64000 (94.97%)                               
+Test set: Average loss: 0.8747, Accuracy: 12016/16000 (75.10%)                                
+
+Epoch 28:
+Train set: Average loss: 0.1574, Accuracy: 60661/64000 (94.78%)                               
+Test set: Average loss: 0.8748, Accuracy: 12017/16000 (75.11%)                                
+
+Epoch 29:
+Train set: Average loss: 0.1587, Accuracy: 60697/64000 (94.84%)                               
+Test set: Average loss: 0.8747, Accuracy: 12019/16000 (75.12%)                                
+
+Epoch 30:
+Train set: Average loss: 0.1554, Accuracy: 60765/64000 (94.95%)                               
+Test set: Average loss: 0.8747, Accuracy: 12019/16000 (75.12%)                                
+
+Performing final test...
+Test set: Average loss: 1.0546, Accuracy: 14541/20000 (72.70%)                                
+
+Test loss: 1.0546413744986056
+Test accuracy: 72.705%
+Best recorded validation accuracy is 75.20%
+Training and evaluation finished.

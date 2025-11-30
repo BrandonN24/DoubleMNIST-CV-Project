@@ -94,6 +94,7 @@ def test(model, device, criterion, test_loader):
         test_acc: test accuracy for the current state of the model
     '''
     # Set model to evaluation mode to notify all layers not to update their parameters.
+    model.eval()
 
     losses = []
     correct = 0
@@ -162,7 +163,8 @@ def main(FLAGS):
     optimizer = optim.Adam(model.parameters(), lr=FLAGS.learning_rate)
 
     # learning rate scheduler - plateau scheduler
-    # decrease the learning rate by a factor of 1/10 if loss does not improve after 1 epoch after the current minimum.
+    # decrease the learning rate by a factor of 1/10 on the next epoch
+    # if loss does not improve after 1 epoch after the current minimum.
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=1)
 
 
@@ -222,7 +224,7 @@ if __name__ == '__main__':
                         type=int, default=1,
                         help='Select mode between 1-3')
     parser.add_argument('--learning_rate',
-                        type=float, default=0.001,
+                        type=float, default=0.0005,
                         help='Initial learning rate.')
     parser.add_argument('--num_epochs',
                         type=int,
