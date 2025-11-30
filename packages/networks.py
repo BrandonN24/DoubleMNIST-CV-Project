@@ -63,34 +63,40 @@ class Network(nn.Module):
         # Fully Convolutional Layers
         self.custom_conv1 = nn.Sequential(
             nn.Conv2d(1, 32, kernel_size=5, stride=1),
+            nn.BatchNorm2d(32),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2)
         ) # dim: 64 -> 60 -> 30
 
         self.custom_conv2 = nn.Sequential(
             nn.Conv2d(32, 64, kernel_size=5, stride=1),
+            nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2)
         ) # dim: 30 -> 26 -> 13
 
         self.custom_conv3 = nn.Sequential(
             nn.Conv2d(64, 128, kernel_size=3, stride=1),
+            nn.BatchNorm2d(128),
             nn.ReLU(inplace=True)
         ) # dim: 13 -> 11
 
         self.custom_conv4 = nn.Sequential(
             nn.Conv2d(128, 128, kernel_size=3, stride=1),
+            nn.BatchNorm2d(128),
             nn.ReLU(inplace=True)
         ) # dim: 11 -> 9
 
         self.custom_conv5 = nn.Sequential(
             nn.Conv2d(128, 256, kernel_size=3, stride=1),
+            nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2)
         ) # dim: 9 -> 7 -> 3
         
         self.fcn_layer = nn.Sequential(
             nn.Conv2d(256, 512, kernel_size=3, stride=1),
+            nn.BatchNorm2d(512),
             nn.ReLU(inplace=True)
         ) # dim: 3 -> 1
 
