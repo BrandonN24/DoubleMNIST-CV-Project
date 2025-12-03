@@ -104,7 +104,7 @@ class Network(nn.Module):
         self.fcn_output1 = nn.Conv2d(512, 10, kernel_size=1)
         self.fcn_output2 = nn.Conv2d(512, 10, kernel_size=1)
 
-        # two output heads - used for all architectures
+        # two output heads - used for model 1 and 2
         self.fc_digit1 = nn.Linear(512, 10)
         self.fc_digit2 = nn.Linear(512, 10)
 
