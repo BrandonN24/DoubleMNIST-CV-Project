@@ -3,10 +3,17 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
+class TargetTransform:
+    def __init__(self, classes):
+        self.classes = classes
+    
+    def __call__(self, idx):
+        return int(self.classes[idx])
+
 def make_dataset(root, transform):
     dataset = datasets.ImageFolder(root=root, transform=transform)
     # Override target_transform: map index → folder name → int
-    dataset.target_transform = lambda idx: int(dataset.classes[idx])
+    dataset.target_transform = TargetTransform(dataset.classes)
     return dataset
 
 def load_data(img_dir):
