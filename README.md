@@ -21,6 +21,7 @@ To run the main driver script, run the following command:
 `python trainNet.py`
 
 There are several arguments that can be used to modify which model architecture is selected and adjust some hyperparameters.
+
 `--mode` selects the model architecture to be used for training and testing.
 - 1 - AlexNet-like Architecture (default)
 - 2 - ResNet18-like Architecture
