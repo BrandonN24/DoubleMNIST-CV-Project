@@ -218,7 +218,11 @@ class BasicBlock(nn.Module):
         # define batch normalization layer with out_channels parameters
         self.bn2 = nn.BatchNorm2d(out_channels)
         
+        # shortcut is just a straight passthrough
         self.shortcut = nn.Sequential()
+
+        # unless stride != 1 or in/out channels don't match
+        # then we instead perform a convolution to match the output channels.
         if stride != 1 or in_channels != out_channels:
             self.shortcut = nn.Sequential(
                 nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride, bias=False),
