@@ -37,8 +37,6 @@ There are several arguments that can be used to modify which model architecture 
 - default is 50
 - Values must be divide evenly into dataset sizes.
 
-
-
 ## Internal dependencies
 This project has internal dependencies that are located in the 'packages' folder.
 These packages include the dataloader.py, networks.py, and plot.py files. If these modules are removed from the 'packages' folder, the main driver script will not work.
