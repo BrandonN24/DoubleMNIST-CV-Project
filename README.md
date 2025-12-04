@@ -17,7 +17,7 @@ Run the following command to download the MNIST dataset and generate the DoubleM
 `python generator.py --num_image_per_class 1000 --multimnist_path ./dataset/double_mnist --num_digit 2 --image_size 64 64`
 
 # Running the main driver script
-To run the main driver script, run the following command:
+To run the main driver script, run the following command while in the root directory:
 `python trainNet.py`
 
 There are several arguments that can be used to modify which model architecture is selected and adjust some hyperparameters.
