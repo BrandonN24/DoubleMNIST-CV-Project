@@ -1,7 +1,7 @@
 # Project Dependencies
 This project relies on the following packages and was tested on Python 3.11
 - argparse
-- pytorch
+- pytorch (torch)
 - torchvision
 - numpy
 - tqdm
