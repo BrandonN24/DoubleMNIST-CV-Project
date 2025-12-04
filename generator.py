@@ -7,6 +7,7 @@ import urllib.request
 import gzip
 import shutil
 
+""" Code sourced from https://github.com/shaohua0116/MultiDigitMNIST and packages adapted for Python 3.11 """
 
 mnist_keys = ['train-images-idx3-ubyte', 'train-labels-idx1-ubyte',
               't10k-images-idx3-ubyte', 't10k-labels-idx1-ubyte']

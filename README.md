@@ -1,5 +1,5 @@
 # Project Dependencies
-This project relies on the following packages
+This project relies on the following packages and was tested on Python 3.11
 - argparse
 - pytorch
 - torchvision
